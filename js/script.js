@@ -1,12 +1,16 @@
 let audio;
 let todayChapters = [];
 let curChapter = 0;
+let startAudio;
 
 for (let i = 0; i < lists.length; i++) {
   todayChapters.push(calculateBook(i));
 }
 
 function play() {
+  if (startAudio == undefined) {
+    startAudio = new Audio("player/start.mp3");
+  }
   if (audio == undefined) {
     let book = todayChapters[curChapter].split(" ")[0];
     let chapter = todayChapters[curChapter].split(" ")[1];
@@ -22,6 +26,7 @@ function play() {
         document.getElementById("audiotrigger").classList.remove("pause");
       }
     });
+    startAudio.play();
   }
 
   if (audio != undefined) {
@@ -29,7 +34,7 @@ function play() {
       audio.play();
       document.getElementById("audiotrigger").classList.add("pause");
       document.getElementById("audiotrigger").classList.remove("play");
-
+      /*
       var msg = new SpeechSynthesisUtterance();
       var voices = window.speechSynthesis.getVoices();
       let i = Math.round(Math.random() * 100);
@@ -41,6 +46,7 @@ function play() {
       msg.text = "Matthew, Mark, Luke and John";
       speechSynthesis.speak(msg);
       //89 is siiiiiick, 13 is weird, 8 maybe...? or 18
+      */
     } else {
       audio.pause();
       document.getElementById("audiotrigger").classList.add("play");

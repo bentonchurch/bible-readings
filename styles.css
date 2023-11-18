@@ -115,6 +115,9 @@ body {
   margin: 2vh;
   padding: 2vh;
   border-radius: 2vh;
+  & h2 {
+    font-size: 2vh;
+  }
 }
 
 @media (min-width: 769px) {
@@ -123,7 +126,7 @@ body {
     background-color: #ffffff;
     margin: 2vw;
     padding: 2vhw;
-    border-radius: 2vw;
+    border-radius: 1vw;
   }
 
   .today {
