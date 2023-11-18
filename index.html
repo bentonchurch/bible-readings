@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="preload" as="image" href="player/pause.png" />
+    <link rel="preload" as="image" href="player/play.png" />
+    <link rel="preload" as="image" href="player/next.png" />
+    <link rel="preload" as="image" href="player/back.png" />
+
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.ico" />
+
+    <title>O'Neail Bible Reading</title>
+
+    <script src="js/initCache.js"></script>
+    <script src="js/calculateBook.js"></script>
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <nav>
+      <img src="icons/icon-192.png" draggable="false" />
+      <p>O'Neail Bible Reading</p>
+    </nav>
+    <div class="content">
+      <div class="today">
+        <h2 id="curDate"></h2>
+        <script src="js/setHeaderDate.js"></script>
+        <hr />
+        <ul id="todayContent"></ul>
+        <script src="js/showToday.js"></script>
+      </div>
+      <div id="buckets"></div>
+      <script src="js/showBuckets.js"></script>
+    </div>
+    <div id="player">
+      <!-- <div onclick="" class="btn back"></div> -->
+      <div onclick="play()" id="audiotrigger" class="btn play"></div>
+      <!-- <div onclick="" class="btn next"></div> -->
+    </div>
+  </body>
+</html>
