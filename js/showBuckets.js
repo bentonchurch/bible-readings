@@ -6,6 +6,6 @@ for (let i = 0; i < buckets.length; i++) {
   for (let j = 0; j < buckets[i].books.length; j++) {
     bucketHtml += "<li>" + buckets[i].books[j] + "</li>";
   }
-  bucketHtml += "</ul></div>";
+  bucketHtml += "</ul><br><button type=\"button\"><i class=\"bi bi-pencil-fill\"></i> Edit</button></div>";
 }
 document.getElementById("buckets").innerHTML = bucketHtml;

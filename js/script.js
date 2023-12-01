@@ -26,7 +26,7 @@ function play() {
         document.getElementById("audiotrigger").classList.remove("pause");
       }
     });
-    startAudio.play();
+    //startAudio.play();
   }
 
   if (audio != undefined) {
@@ -64,7 +64,7 @@ function generateLink(book, chapter) {
     "%3A" +
     1 +
     "%E2%80%93" +
-    /*bibleJson[book][chapter]*/ 2 +
+    bibleJson[book][chapter] /* 2 */ +
     ".mp3"
   );
 }
