@@ -26,12 +26,16 @@
 
     <script src="js/initCache.js"></script>
     <script src="js/calculateBook.js"></script>
+    <script src="js/popover.js"></script>
     <script src="js/script.js"></script>
   </head>
   <body>
     <div id="popover-background">
       <div id="popover">
-        <h1>Test</h1>
+        <div id="popover-content"></div>
+        <center>
+          <button type="button" onClick="setData(); setPopoverDisplay(false);">Done</button>
+        </center>
       </div>
     </div>
 
