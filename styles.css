@@ -141,3 +141,16 @@ body {
   padding: 5vh 5vh;
   border-radius: 3vh;
 }
+
+.bi {
+  color: #000000;
+}
+
+.bi-x-circle-fill {
+  color: #a40000;
+}
+
+#listbooks ul {
+  list-style-type: none;
+  padding: 0px;
+}
