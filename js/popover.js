@@ -3,7 +3,19 @@ let curEditBucket = 0;
 function setPopoverBucket(num) {
     let popover = document.getElementById("popover-content");
     popover.innerHTML="";
-    popover.innerHTML+="<input type=\"text\" id=\"bucketname\" value=\""+lists[num].name+"\">";
+    popover.innerHTML+="<input type=\"text\" id=\"bucketname\" value=\""+lists[num].name+"\"><br>";
+
+
+    // Add new book data
+    let dropdown = "";
+    dropdown+="<select name=\"addbookdropdown\"id=\"addbookdropdown\">";
+    for (const i in bibleJson) {
+        dropdown+="<option value=\""+i+"\">"+i+"</option>";
+    }
+    dropdown+="</select>"
+    popover.innerHTML+=dropdown;
+    popover.innerHTML+="<button type=\"button\">Add book</button>";
+
     curEditBucket=num;
 }
 
