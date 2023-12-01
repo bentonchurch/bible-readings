@@ -119,22 +119,3 @@ body {
     font-size: 2vh;
   }
 }
-
-@media (min-width: 769px) {
-  .bucket,
-  .today {
-    background-color: #ffffff;
-    margin: 2vw;
-    padding: 2vhw;
-    border-radius: 1vw;
-  }
-
-  .today {
-    width: 30%;
-    display: inline-block;
-  }
-  #buckets {
-    width: 60%;
-    display: inline-block;
-  }
-}
