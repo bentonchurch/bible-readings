@@ -3,7 +3,13 @@ let curEditBucket = 0;
 function setPopoverBucket(num) {
     let popover = document.getElementById("popover-content");
     popover.innerHTML="";
+
+    // Add bucket rename field
     popover.innerHTML+="<input type=\"text\" id=\"bucketname\" value=\""+lists[num].name+"\"><br><br>";
+
+    
+    // Add start book fields
+    popover.innerHTML+="<input type=\"number\" id=\"starting-chapter\" min=\"1\" max=\""+1+"\" />";
 
 
     // Add current book data
@@ -47,7 +53,7 @@ function updateBooks() {
     bookList+="<ul>";
     let j = 0;
     for (const i of lists[curEditBucket].books) {
-        bookList+="<li><a href=\"javascript:void(0);\" onclick=\"removeBook("+j+");\"><i class=\"bi bi-x-circle-fill\"></i></a> "+i+"</li>";
+        bookList+="<li><a href=\"javascript:void(0);\" onclick=\"removeBook("+j+");\"><i class=\"bi bi-x-circle\"></i></a> "+i+"</li>";
         j++;
     }
     bookList+="</ul></div><br>";

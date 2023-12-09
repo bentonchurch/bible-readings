@@ -131,6 +131,7 @@ body {
   bottom: 0;
   background-color: rgba(0,0,0,0.5);
   z-index: 2;
+  transition-duration: 0.5s;
 }
 
 #popover {
@@ -140,17 +141,73 @@ body {
   margin: 5vh calc( 10% - 5vh);
   padding: 5vh 5vh;
   border-radius: 3vh;
+  transition-duration: 0.5s;
 }
 
 .bi {
   color: #000000;
 }
 
-.bi-x-circle-fill {
-  color: #a40000;
+.bi-x-circle {
+  color: #ff0000;
 }
 
 #listbooks ul {
   list-style-type: none;
   padding: 0px;
+}
+
+button, input[type="button"] {
+  background-color: #F3Bc1f;
+  border-style: none;
+  font-size: 16px;
+  padding: 10px;
+  width: 15vh;
+  max-width: 100%;
+  color: white;
+  border-radius: 10px;
+  transition-duration: 0.25s;
+  margin: 3px;
+}
+
+button:hover, input[type="button"]:hover {
+  box-shadow: 5px 5px 5px #0000002d;
+  cursor: pointer;
+}
+
+button .bi, input[type="button"] .bi {
+  color: white;
+}
+
+select {
+  background-color: #ffffff;
+  border-style: solid;
+  font-size: 16px;
+  padding: 7px;
+  width: 15vh;
+  max-width: 100%;
+  color: #F3Bc1f;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: #F3Bc1f;
+  transition-duration: 0.25s;
+  margin: 3px;
+}
+
+input[type="text"] {
+  background-color: #ffffff;
+  border-style: solid;
+  font-size: 16px;
+  padding: 7px;
+  color: #000000;
+  border-radius: 5px;
+  border-width: 2px;
+  border-color: #F3Bc1f;
+  transition-duration: 0.25s;
+  margin: 3px;
+}
+
+#popover-done {
+  position: absolute;
+  bottom: 10vh;
 }
