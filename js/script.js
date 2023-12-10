@@ -12,13 +12,18 @@ function play() {
     startAudio = new Audio("player/start.mp3");
   }
   if (audio == undefined) {
-    let book = todayChapters[curChapter].split(" ")[0];
-    let chapter = todayChapters[curChapter].split(" ")[1];
-    audio = new Audio(generateLink(book, chapter));
+    if (curChapter%1 > 0) {
+      audio = startAudio;
+    } else {
+      let book = todayChapters[curChapter].split(" ")[0];
+      let chapter = todayChapters[curChapter].split(" ")[1];
+      audio = new Audio(generateLink(book, chapter));
+    }
     audio.addEventListener("ended", function () {
-      curChapter++;
+      console.log("audio has ended")
+      curChapter+=0.5;
       audio = undefined;
-      if (curChapter < todayChapters.length) {
+      if (curChapter < todayChapters.length-0.5) {
         play();
       } else {
         curChapter = 0;
@@ -64,7 +69,7 @@ function generateLink(book, chapter) {
     "%3A" +
     1 +
     "%E2%80%93" +
-    bibleJson[book][chapter] /* 2 */ +
+    /* bibleJson[book][chapter] */ 2 +
     ".mp3"
   );
 }

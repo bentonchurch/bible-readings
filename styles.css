@@ -194,7 +194,7 @@ select {
   margin: 3px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="number"] {
   background-color: #ffffff;
   border-style: solid;
   font-size: 16px;
@@ -207,7 +207,10 @@ input[type="text"] {
   margin: 3px;
 }
 
-#popover-done {
-  position: absolute;
-  bottom: 10vh;
+.trash-can {
+  color: #ff0000;
+}
+
+.bi-caret-up-fill, .bi-caret-down-fill {
+  color: #F3Bc1f;
 }
