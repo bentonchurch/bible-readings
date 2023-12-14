@@ -7,7 +7,6 @@ function initCache() {
       {
         "name": "The Gospels",
         "start": "Matthew 1",
-        "day": 0,
         "books": [
           "Matthew",
           "Mark",
@@ -18,7 +17,6 @@ function initCache() {
       {
         "name": "The Pentateuch",
         "start": "Genesis 1",
-        "day": 0,
         "books": [
           "Genesis",
           "Exodus",
@@ -30,7 +28,6 @@ function initCache() {
       {
         "name": "The Psalms",
         "start": "Psalms 1",
-        "day": 0,
         "books": [
           "Psalms"
         ]

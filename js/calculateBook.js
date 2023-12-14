@@ -8,8 +8,6 @@ function calculateBook(num) {
   let bookNum = books.indexOf(startBook);
   let bookChapter = startChapter;
 
-  console.log(lists);
-
   for (let i = 0; i < day; i++) {
     bookChapter++;
     if (bookChapter > bibleJson[books[bookNum]].length) {
@@ -25,14 +23,7 @@ function calculateBook(num) {
 }
 
 function updateStart(num) {
-  // If list is unchanged
-  //   Do nothing
-
-  // If today's book exists
-  //   Set start book to be today's book and start chapter to today's chapter
-  //   Set day to 0
-
-  // If book doesn't exist
-  //   Set book to be first chapter of first book
-  //   Set day to 0
+  if (lists[num].books.indexOf(lists[num].start.split(' ').slice(0, -1).join(' ')) === -1) {
+    lists[num].start = lists[num].books[0]+"1";
+  }
 }

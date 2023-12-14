@@ -8,16 +8,16 @@ function setPopoverBucket(num) {
 
 
   // Add bucket rename field
-  popover.innerHTML+="<h1>Edit Bucket</h1>";
+  popover.innerHTML+="<h1>Edit List</h1>";
   popover.innerHTML+="<br><h3>Name</h3><input type=\"text\" id=\"bucketname\" value=\""+lists[num].name+"\"><br><br>";
 
     
   // Add start book fields
-  popover.innerHTML+="<h3>Starting point for this list</h3>";
+  popover.innerHTML+="<h3>Current point in this list</h3>";
   let startBookDropdown = "";
   startBookDropdown+="<select name=\"starting-book-dropdown\"id=\"starting-book-dropdown\">";
   for (const i in lists[curEditBucket].books) {
-    startBookDropdown+="<option value=\""+lists[curEditBucket].books[i]+"\">"+lists[curEditBucket].books[i]+"</option>";
+    startBookDropdown+="<option value=\""+spaceDash(lists[curEditBucket].books[i])+"\">"+lists[curEditBucket].books[i]+"</option>";
   }
   startBookDropdown+="</select>"
   popover.innerHTML+=startBookDropdown;
@@ -121,4 +121,8 @@ function moveBookUp(b) {
 function moveBookDown(b) {
   lists[curEditBucket].books = moveItem(lists[curEditBucket].books, b, Math.min(b+1, lists[curEditBucket].books.length-1));
   updateBooks();
+}
+
+function spaceDash(t) {
+  return t.split(' ').join('-');
 }
