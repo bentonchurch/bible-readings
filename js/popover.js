@@ -17,7 +17,7 @@ function setPopoverBucket(num) {
   let startBookDropdown = "";
   startBookDropdown+="<select name=\"starting-book-dropdown\"id=\"starting-book-dropdown\"></select>";
   popover.innerHTML+=startBookDropdown;
-  popover.innerHTML+="<input type=\"number\" id=\"starting-chapter\" min=\"1\" max=\"1\" value=\"1\" onkeyup=\"this.value = Math.max(Math.min(this.value, 1), 1);\" /><br><br>";
+  popover.innerHTML+="<input type=\"number\" id=\"starting-chapter\" min=\"1\" max=\"1\" value=\""+lists[curEditBucket].start.split(' ').slice(-1)[0]+"\" onkeyup=\"this.value = Math.max(Math.min(this.value, 1), 1);\" /><br><br>";
 
 
   // Add current book data
@@ -38,7 +38,7 @@ function setPopoverBucket(num) {
   popover.innerHTML+="<button type=\"button\" onclick=\"addNewBook();\">Add book</button>";
 
   // Add script to run when number box is updated
-  document.getElementById("starting-chapter").addEventListener('change', console.log(this.value));
+  document.getElementById("starting-book-dropdown").onchange = updateStartInput;
 
   updateBooks();
   updateStartInput();
@@ -138,9 +138,24 @@ function updateStart(num) {
 
 function updateStartInput() {
   let newInput = "";
+  let stillExists = false;
+  let val = document.getElementById("starting-book-dropdown").value;
   for (const i in lists[curEditBucket].books) {
     newInput+="<option value=\""+spaceDash(lists[curEditBucket].books[i])+"\">"+lists[curEditBucket].books[i]+"</option>";
+    if (lists[curEditBucket].start.split(' ').slice(0, -1).join(' ') === lists[curEditBucket].books[i]) {
+      stillExists=true;
+    }
   }
   document.getElementById("starting-book-dropdown").innerHTML = newInput;
-  document.getElementById("starting-book-dropdown").value = spaceDash(lists[curEditBucket].start.split(' ').slice(0, -1).join(' '));
+  if (!stillExists || !val) {
+    document.getElementById("starting-book-dropdown").value = spaceDash(lists[curEditBucket].start.split(' ').slice(0, -1).join(' '));
+  } else {
+    document.getElementById("starting-book-dropdown").value = val;
+  }
+  let numChapters = bibleJson[document.getElementById("starting-book-dropdown").options[document.getElementById("starting-book-dropdown").selectedIndex].text].length;
+  console.log(numChapters, document.getElementById("starting-book-dropdown").options[document.getElementById("starting-book-dropdown").selectedIndex].text)
+  document.getElementById("starting-chapter").max=numChapters;
+  document.getElementById("starting-chapter").setAttribute("onkeyup", "this.value = Math.max(Math.min(this.value, "+numChapters+"), 1)");
+  document.getElementById("starting-chapter").value = Math.min(lists[curEditBucket].start.split(' ').slice(-1), numChapters);
+  lists[curEditBucket].start=document.getElementById("starting-book-dropdown").options[document.getElementById("starting-book-dropdown").selectedIndex].text+" "+Math.min(lists[curEditBucket].start.split(' ').slice(-1), numChapters);
 }
