@@ -159,3 +159,7 @@ function updateStartInput() {
   document.getElementById("starting-chapter").value = Math.min(lists[curEditBucket].start.split(' ').slice(-1), numChapters);
   lists[curEditBucket].start=document.getElementById("starting-book-dropdown").options[document.getElementById("starting-book-dropdown").selectedIndex].text+" "+Math.min(lists[curEditBucket].start.split(' ').slice(-1), numChapters);
 }
+
+function resetData() {
+  lists = JSON.parse(localStorage.lists);
+}

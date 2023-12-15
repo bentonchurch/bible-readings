@@ -179,7 +179,7 @@ button .bi, input[type="button"] .bi {
   color: white;
 }
 
-select {
+select, #popover-cancel {
   background-color: #ffffff;
   border-style: solid;
   font-size: 16px;
