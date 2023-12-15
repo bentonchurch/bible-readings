@@ -1,10 +1,9 @@
 function calculateBook(num) {
   let day = lists[num].day;
   let start = lists[num].start;
-  let startBook = start.split(" ")[0];
-  let startChapter = 1 * start.split(" ")[1];
+  let startBook = start.split(" ").slice(0, -1).join(" ");
+  let startChapter = 1 * start.split(" ").slice(-1).join("");
   let books = lists[num].books;
-
   let bookNum = books.indexOf(startBook);
   let bookChapter = startChapter;
 
@@ -20,10 +19,4 @@ function calculateBook(num) {
   }
 
   return books[bookNum] + " " + bookChapter;
-}
-
-function updateStart(num) {
-  if (lists[num].books.indexOf(lists[num].start.split(' ').slice(0, -1).join(' ')) === -1) {
-    lists[num].start = lists[num].books[0]+"1";
-  }
 }

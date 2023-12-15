@@ -15,13 +15,9 @@ function setPopoverBucket(num) {
   // Add start book fields
   popover.innerHTML+="<h3>Current point in this list</h3>";
   let startBookDropdown = "";
-  startBookDropdown+="<select name=\"starting-book-dropdown\"id=\"starting-book-dropdown\">";
-  for (const i in lists[curEditBucket].books) {
-    startBookDropdown+="<option value=\""+spaceDash(lists[curEditBucket].books[i])+"\">"+lists[curEditBucket].books[i]+"</option>";
-  }
-  startBookDropdown+="</select>"
+  startBookDropdown+="<select name=\"starting-book-dropdown\"id=\"starting-book-dropdown\"></select>";
   popover.innerHTML+=startBookDropdown;
-  popover.innerHTML+="<input type=\"number\" id=\"starting-chapter\" min=\"1\" max=\""+1+"\" value=\"1\"/><br><br>";
+  popover.innerHTML+="<input type=\"number\" id=\"starting-chapter\" min=\"1\" max=\"1\" value=\"1\" onkeyup=\"this.value = Math.max(Math.min(this.value, 1), 1);\" /><br><br>";
 
 
   // Add current book data
@@ -41,18 +37,24 @@ function setPopoverBucket(num) {
   popover.innerHTML+=dropdown;
   popover.innerHTML+="<button type=\"button\" onclick=\"addNewBook();\">Add book</button>";
 
+  // Add script to run when number box is updated
+  document.getElementById("starting-chapter").addEventListener('change', console.log(this.value));
+
   updateBooks();
+  updateStartInput();
 }
 
 function addNewBook() {
   let book = document.getElementById("addbookdropdown").value;
   lists[curEditBucket].books.push(book);
   updateBooks();
+  updateStartInput();
 }
 
 function removeBook(num) {
   lists[curEditBucket].books=removeElement(lists[curEditBucket].books, num);
   updateBooks();
+  updateStartInput();
 }
 
 function updateBooks() {
@@ -74,6 +76,7 @@ function updateBooks() {
     //list.innerHTML+="<li>"+i+"</li>";
   }
   //list.innerHTML+="</ul>";
+  updateStart(curEditBucket);
 }
 
 function setData() {
@@ -125,4 +128,19 @@ function moveBookDown(b) {
 
 function spaceDash(t) {
   return t.split(' ').join('-');
+}
+
+function updateStart(num) {
+  if (lists[num].books.indexOf(lists[num].start.split(' ').slice(0, -1).join(' ')) === -1) {
+    lists[num].start = lists[num].books[0]+" 1";
+  }
+}
+
+function updateStartInput() {
+  let newInput = "";
+  for (const i in lists[curEditBucket].books) {
+    newInput+="<option value=\""+spaceDash(lists[curEditBucket].books[i])+"\">"+lists[curEditBucket].books[i]+"</option>";
+  }
+  document.getElementById("starting-book-dropdown").innerHTML = newInput;
+  document.getElementById("starting-book-dropdown").value = spaceDash(lists[curEditBucket].start.split(' ').slice(0, -1).join(' '));
 }
