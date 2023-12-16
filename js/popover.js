@@ -82,6 +82,7 @@ function updateBooks() {
 function setData() {
   let bucketName = document.getElementById("bucketname").value;
   lists[curEditBucket]["name"]=bucketName;
+  lists[curEditBucket]["start"]=lists[curEditBucket]["start"].split(' ').slice(0, -1).join(' ')+" "+document.getElementById('starting-chapter').value;
 
   localStorage.lists=JSON.stringify(lists);
   showToday();
