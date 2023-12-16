@@ -97,13 +97,16 @@ function setPopoverDisplay(type) {
 }
 
 function removeElement(array, num) {
-  let newArray = [];
-  for (let i = 0; i < array.length; i++) {
-    if (i != num) {
-      newArray.push(array[i]);
+  if (array.length > 1) {
+    let newArray = [];
+    for (let i = 0; i < array.length; i++) {
+      if (i != num) {
+        newArray.push(array[i]);
+      }
     }
+    return newArray;
   }
-  return newArray;
+  return array;
 }
 
 function trashCan() {
@@ -162,4 +165,22 @@ function updateStartInput() {
 
 function resetData() {
   lists = JSON.parse(localStorage.lists);
+}
+
+function addBlankList() {
+  lists.push({
+    name: "New List",
+    start: "Genesis 1",
+    books: ["Genesis"]
+  });
+  localStorage.lists=JSON.stringify(lists);
+  showToday();
+  showBuckets();
+}
+
+function removeList(num) {
+  lists=removeElement(lists, num);
+  localStorage.lists=JSON.stringify(lists);
+  showToday();
+  showBuckets();
 }
