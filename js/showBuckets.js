@@ -10,7 +10,7 @@ function showBuckets() {
     bucketHtml += "</ul><br><button type=\"button\" onclick=\"setPopoverBucket("+i+");setPopoverDisplay(true);\"><i class=\"bi bi-pencil-fill\"></i> Edit</button>";
     bucketHtml += "<button type=\"button\" onclick=\"removeList("+i+");\"><i class=\"bi bi-eraser-fill\"></i> Delete</button></div>";
   }
-  bucketHtml += "<center><button type=\"button\" onclick=\"addBlankList();\" id=\"add-list\">Add List</button></center><br>";
+  bucketHtml += "<center><button type=\"button\" onclick=\"addBlankList();setPopoverBucket("+(buckets.length)+");setPopoverDisplay(true);\" id=\"add-list\">Add List</button></center><br>";
   document.getElementById("buckets").innerHTML = bucketHtml;
 }
 
