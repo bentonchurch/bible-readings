@@ -1,5 +1,5 @@
-function calculateBook(num) {
-  let day = lists[num].day;
+function calculateBook(num, t) {
+  let day = t;
   let start = lists[num].start;
   let startBook = start.split(" ").slice(0, -1).join(" ");
   let startChapter = 1 * start.split(" ").slice(-1).join("");

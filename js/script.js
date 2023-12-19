@@ -28,7 +28,7 @@ let curChapter = 0;
 let startAudio;
 
 for (let i = 0; i < lists.length; i++) {
-  todayChapters.push(calculateBook(i));
+  todayChapters.push(lists[i].start);
 }
 
 function play() {
@@ -44,6 +44,13 @@ function play() {
       audio = new Audio("player/start.mp3");;
     }
     audio.addEventListener("ended", function () {
+      if (curChapter%1 === 0) {
+        console.log(curChapter);
+        lists[curChapter].start = calculateBook(curChapter, 1);
+        localStorage.lists = JSON.stringify(lists);
+        showToday();
+        showBuckets();
+      }
       if (curChapter < todayChapters.length-0.5) {
         curChapter+=0.5;
         audio = undefined;
@@ -51,6 +58,8 @@ function play() {
       } else {
         curChapter = 0;
         audio = undefined;
+        document.getElementById("audiotrigger").classList.add("play");
+        document.getElementById("audiotrigger").classList.remove("pause");
       }
     });
   }
