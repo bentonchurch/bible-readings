@@ -60,6 +60,15 @@ function play() {
         audio = undefined;
         document.getElementById("audiotrigger").classList.add("play");
         document.getElementById("audiotrigger").classList.remove("pause");
+        document.getElementById("audiotrigger").classList.remove("wait");
+      }
+    });
+    document.getElementById("audiotrigger").classList.remove("pause");
+    document.getElementById("audiotrigger").classList.remove("play");
+    document.getElementById("audiotrigger").classList.add("wait");
+    audio.addEventListener("canplay", function () {
+      if (audio.paused) {
+        play();
       }
     });
   }
@@ -69,10 +78,12 @@ function play() {
       audio.play();
       document.getElementById("audiotrigger").classList.add("pause");
       document.getElementById("audiotrigger").classList.remove("play");
+      document.getElementById("audiotrigger").classList.remove("wait");
     } else {
       audio.pause();
       document.getElementById("audiotrigger").classList.add("play");
       document.getElementById("audiotrigger").classList.remove("pause");
+      document.getElementById("audiotrigger").classList.remove("wait");
     }
   }
 }

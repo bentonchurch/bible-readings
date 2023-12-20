@@ -95,6 +95,10 @@ body {
   background: url("https://i.ibb.co/5MX03Vb/pause-1.png");
 }
 
+.wait {
+  background: url("https://i.ibb.co/XZStx9t/wait.png");
+}
+
 .content {
   width: 100%;
   height: calc(87vh - var(--player-display) * 8);
