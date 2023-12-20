@@ -88,19 +88,11 @@ body {
 }
 
 .play {
-  background: url("/player/play.png");
+  background: url("https://i.ibb.co/cxHQ21v/play-1.png");
 }
 
 .pause {
   background: url("/player/pause.png");
-}
-
-.next {
-  background: url("/player/next.png");
-}
-
-.back {
-  background: url("/player/back.png");
 }
 
 .content {
