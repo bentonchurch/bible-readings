@@ -15,3 +15,15 @@ function showBuckets() {
 }
 
 showBuckets();
+
+function bucketDisplay(state) {
+  if (state) {
+    document.getElementById("buckets").style.display = "block";
+    document.getElementById("show-list").style.display = "none";
+    document.getElementById("hide-list").style.display = "block";
+  } else {
+    document.getElementById("buckets").style.display = "none";
+    document.getElementById("show-list").style.display = "block";
+    document.getElementById("hide-list").style.display = "none";
+  }
+}

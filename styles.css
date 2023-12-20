@@ -12,6 +12,7 @@
 * {
   margin: 0px;
   font-family: "Roboto Slab", serif;
+  user-select: none;
 }
 
 nav {
@@ -213,4 +214,27 @@ input[type="text"], input[type="number"] {
 
 .bi-caret-up-fill, .bi-caret-down-fill {
   color: #F3Bc1f;
+}
+
+.today {
+  & h2 {
+    font-size: 2.5vh;
+  }
+
+  & li {
+    font-size: 2vh;
+  }
+}
+
+.bucket {
+  background-color: #a7bece;
+  color: #ffffff;
+
+  & h2 {
+    font-size: 2.25vh;
+  }
+
+  & li {
+    font-size: 1.75vh;
+  }
 }
