@@ -37,8 +37,8 @@ function play() {
   }
   if (audio == undefined) {
     if (curChapter%1 === 0) {
-      let book = todayChapters[curChapter].split(" ")[0];
-      let chapter = todayChapters[curChapter].split(" ")[1];
+      let book = todayChapters[curChapter].split(" ").slice(0, -1).join(" ");
+      let chapter = todayChapters[curChapter].split(" ").slice(-1)[0];
       audio = new Audio(generateLink(book, chapter));
     } else {
       audio = new Audio("player/start.mp3");;
