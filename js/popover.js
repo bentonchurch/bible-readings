@@ -17,7 +17,7 @@ function setPopoverBucket(num) {
   let startBookDropdown = "";
   startBookDropdown+="<select name=\"starting-book-dropdown\"id=\"starting-book-dropdown\"></select>";
   popover.innerHTML+=startBookDropdown;
-  popover.innerHTML+="<input type=\"number\" id=\"starting-chapter\" min=\"1\" max=\"1\" value=\""+lists[curEditBucket].start.split(' ').slice(-1)[0]+"\" onkeyup=\"this.value = Math.max(Math.min(this.value, 1), 1);\" /><br><br>";
+  popover.innerHTML+="<input type=\"number\" id=\"starting-chapter\" min=\"1\" value=\""+lists[curEditBucket].start.split(' ').slice(-1)[0]+"\" onkeyup=\"this.value = Math.max(this.value, 1);\" /><span id=\"max-chapter\"> / 1</span><br><br>";
 
 
   // Add current book data
@@ -82,7 +82,7 @@ function updateBooks() {
 function setData() {
   let bucketName = document.getElementById("bucketname").value;
   lists[curEditBucket]["name"]=bucketName;
-  lists[curEditBucket]["start"]=lists[curEditBucket]["start"].split(' ').slice(0, -1).join(' ')+" "+document.getElementById('starting-chapter').value;
+  lists[curEditBucket]["start"]=lists[curEditBucket]["start"].split(' ').slice(0, -1).join(' ')+" "+Math.min(document.getElementById('starting-chapter').value, document.getElementById('starting-chapter').getAttribute("max"));
 
   localStorage.lists=JSON.stringify(lists);
   showToday();
@@ -159,8 +159,8 @@ function updateStartInput() {
   let numChapters = bibleJson[document.getElementById("starting-book-dropdown").options[document.getElementById("starting-book-dropdown").selectedIndex].text].length;
   console.log(numChapters, document.getElementById("starting-book-dropdown").options[document.getElementById("starting-book-dropdown").selectedIndex].text)
   document.getElementById("starting-chapter").max=numChapters;
-  document.getElementById("starting-chapter").setAttribute("onkeyup", "this.value = Math.max(Math.min(this.value, "+numChapters+"), 1)");
   document.getElementById("starting-chapter").value = Math.min(lists[curEditBucket].start.split(' ').slice(-1), numChapters);
+  document.getElementById("max-chapter").innerHTML = " / "+numChapters;
   lists[curEditBucket].start=document.getElementById("starting-book-dropdown").options[document.getElementById("starting-book-dropdown").selectedIndex].text+" "+Math.min(lists[curEditBucket].start.split(' ').slice(-1), numChapters);
 }
 
