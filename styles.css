@@ -235,3 +235,8 @@ input[type="text"], input[type="number"] {
     font-size: 1.75vh;
   }
 }
+
+.bi-play-circle {
+  color: #F3Bc1f;
+  cursor: pointer;
+}

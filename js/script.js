@@ -2,15 +2,32 @@ let audio;
 let todayChapters = [];
 let curChapter = 0;
 let startAudio;
+let audioEndFunction = function () {
+  if (curChapter%1 === 0) {
+    console.log(curChapter);
+    lists[curChapter].start = calculateBook(curChapter, 1);
+    localStorage.lists = JSON.stringify(lists);
+    showToday();
+    showBuckets();
+  }
+  if (curChapter < todayChapters.length-0.5) {
+    curChapter+=0.5;
+    audio = undefined;
+    play();
+  } else {
+    curChapter = 0;
+    audio = undefined;
+    document.getElementById("audiotrigger").classList.add("play");
+    document.getElementById("audiotrigger").classList.remove("pause");
+    document.getElementById("audiotrigger").classList.remove("wait");
+  }
+};
 
 for (let i = 0; i < lists.length; i++) {
   todayChapters.push(lists[i].start);
 }
 
 function play() {
-  if (startAudio == undefined) {
-    //startAudio = new Audio("player/start.mp3");
-  }
   if (audio == undefined) {
     if (curChapter%1 === 0) {
       let book = todayChapters[curChapter].split(" ").slice(0, -1).join(" ");
@@ -19,26 +36,7 @@ function play() {
     } else {
       audio = new Audio("player/start.mp3");;
     }
-    audio.addEventListener("ended", function () {
-      if (curChapter%1 === 0) {
-        console.log(curChapter);
-        lists[curChapter].start = calculateBook(curChapter, 1);
-        localStorage.lists = JSON.stringify(lists);
-        showToday();
-        showBuckets();
-      }
-      if (curChapter < todayChapters.length-0.5) {
-        curChapter+=0.5;
-        audio = undefined;
-        play();
-      } else {
-        curChapter = 0;
-        audio = undefined;
-        document.getElementById("audiotrigger").classList.add("play");
-        document.getElementById("audiotrigger").classList.remove("pause");
-        document.getElementById("audiotrigger").classList.remove("wait");
-      }
-    });
+    audio.addEventListener("ended", audioEndFunction);
     document.getElementById("audiotrigger").classList.remove("pause");
     document.getElementById("audiotrigger").classList.remove("play");
     document.getElementById("audiotrigger").classList.add("wait");
