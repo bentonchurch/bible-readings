@@ -1,12 +1,19 @@
-/* 
-  Color 1: #21295c
-  Color 2: #DDF8E8
-  Color 3: #F3BC1F
-  Color 4: #7C7C7C
-*/
-
 :root {
   --player-display: 1vh;
+
+  --nav-bg-color: #21295c;
+  --nav-text-color: #ddf8e8;
+  --body-background-color: #ddf8e8;
+  --player-ribbon-background-color: #ffffff;
+  --today-block-background-color: #ffffff;
+  --popover-background-color: #ffffff;
+  --popover-delete-button-color: #ff0000;
+  --input-primary-color: #F3Bc1f;
+  --input-secondary-background-color: #ffffff;
+  --bucket-background-color: #a7bece;
+  --text-input-text-color: #000000;
+  --bucket-text-color: #ffffff;
+  --button-color: #ffffff;
 }
 
 * {
@@ -16,7 +23,7 @@
 }
 
 nav {
-  background-color: #21295c;
+  background-color: var(--nav-bg-color);
   user-select: none;
   padding-top: 1.5vh;
   padding-right: 1.5vh;
@@ -41,18 +48,15 @@ nav p {
   text-align: left;
   transform-origin: left;
   margin-left: 1vh;
-}
-
-p {
-  color: #ddf8e8;
+  color: var(--nav-text-color);
 }
 
 body {
-  background-color: #ddf8e8;
+  background-color: var(--body-background-color);
 }
 
 #player {
-  background-color: #ffffff;
+  background-color: var(--player-ribbon-background-color);
   width: 100%;
   height: 12vh;
   display: inline-block;
@@ -108,7 +112,7 @@ body {
 
 .bucket,
 .today {
-  background-color: #ffffff;
+  background-color: var(--today-block-background-color);
   margin: 2vh;
   padding: 2vh;
   border-radius: 2vh;
@@ -132,7 +136,7 @@ body {
 }
 
 #popover {
-  background: #ffffff;
+  background: var(--popover-background-color);
   width: 80%;
   height: 80vh;
   margin: 5vh calc( 10% - 5vh);
@@ -142,12 +146,8 @@ body {
   overflow-y: scroll;
 }
 
-.bi {
-  color: #000000;
-}
-
 .bi-x-circle {
-  color: #ff0000;
+  color: var(--popover-delete-button-color);
 }
 
 #listbooks ul {
@@ -156,13 +156,13 @@ body {
 }
 
 button, input[type="button"] {
-  background-color: #F3Bc1f;
+  background-color: var(--input-primary-color);
   border-style: none;
   font-size: 16px;
   padding: 10px;
   width: 15vh;
   max-width: 100%;
-  color: white;
+  color: var(--button-color);
   border-radius: 10px;
   transition-duration: 0.25s;
   margin: 3px;
@@ -174,43 +174,43 @@ button:hover, input[type="button"]:hover {
 }
 
 button .bi, input[type="button"] .bi {
-  color: white;
+  color: var(--button-color);
 }
 
 select, #popover-cancel {
-  background-color: #ffffff;
+  background-color: var(--input-secondary-background-color);
   border-style: solid;
   font-size: 16px;
   padding: 7px;
   width: 15vh;
   max-width: 100%;
-  color: #F3Bc1f;
+  color: var(--input-primary-color);
   border-radius: 10px;
   border-width: 2px;
-  border-color: #F3Bc1f;
+  border-color: var(--input-primary-color);
   transition-duration: 0.25s;
   margin: 3px;
 }
 
 input[type="text"], input[type="number"] {
-  background-color: #ffffff;
+  background-color: var(--input-secondary-background-color);
   border-style: solid;
   font-size: 16px;
   padding: 7px;
-  color: #000000;
+  color: var(--text-input-text-color);
   border-radius: 5px;
   border-width: 2px;
-  border-color: #F3Bc1f;
+  border-color: var(--input-primary-color);
   transition-duration: 0.25s;
   margin: 3px;
 }
 
 .trash-can {
-  color: #ff0000;
+  color: var(--popover-delete-button-color);
 }
 
 .bi-caret-up-fill, .bi-caret-down-fill {
-  color: #F3Bc1f;
+  color: var(--input-primary-color);
 }
 
 .today {
@@ -224,8 +224,8 @@ input[type="text"], input[type="number"] {
 }
 
 .bucket {
-  background-color: #a7bece;
-  color: #ffffff;
+  background-color: var(--bucket-background-color);
+  color: var(--bucket-text-color);
 
   & h2 {
     font-size: 2.25vh;
@@ -237,6 +237,6 @@ input[type="text"], input[type="number"] {
 }
 
 .bi-play-circle {
-  color: #F3Bc1f;
+  color: var(--input-primary-color);
   cursor: pointer;
 }
