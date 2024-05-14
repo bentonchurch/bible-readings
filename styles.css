@@ -108,7 +108,9 @@ body {
   mask-image: url("https://i.ibb.co/RQ2cpDv/hourglass.png");
 }
 
-.play, .pause, .wait {
+.play,
+.pause,
+.wait {
   background-image: linear-gradient(0deg, var(--play-button-color), var(--play-button-color));
 }
 
@@ -126,6 +128,7 @@ body {
   padding: 2vh;
   border-radius: 2vh;
   color: var(--today-text-color);
+
   & h2 {
     font-size: 2vh;
   }
@@ -140,7 +143,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   transition-duration: 0.5s;
 }
@@ -149,7 +152,7 @@ body {
   background: var(--popover-background-color);
   width: 80%;
   height: 80vh;
-  margin: 5vh calc( 10% - 5vh);
+  margin: 5vh calc(10% - 5vh);
   padding: 5vh 5vh;
   border-radius: 3vh;
   transition-duration: 0.5s;
@@ -165,7 +168,8 @@ body {
   padding: 0px;
 }
 
-button, input[type="button"] {
+button,
+input[type="button"] {
   background-color: var(--input-primary-color);
   border-style: none;
   font-size: 16px;
@@ -178,16 +182,19 @@ button, input[type="button"] {
   margin: 3px;
 }
 
-button:hover, input[type="button"]:hover {
+button:hover,
+input[type="button"]:hover {
   box-shadow: 5px 5px 5px #0000002d;
   cursor: pointer;
 }
 
-button .bi, input[type="button"] .bi {
+button .bi,
+input[type="button"] .bi {
   color: var(--button-color);
 }
 
-select, #popover-cancel {
+select,
+#popover-cancel {
   background-color: var(--input-secondary-background-color);
   border-style: solid;
   font-size: 16px;
@@ -202,7 +209,8 @@ select, #popover-cancel {
   margin: 3px;
 }
 
-input[type="text"], input[type="number"] {
+input[type="text"],
+input[type="number"] {
   background-color: var(--input-secondary-background-color);
   border-style: solid;
   font-size: 16px;
@@ -219,7 +227,8 @@ input[type="text"], input[type="number"] {
   color: var(--popover-delete-button-color);
 }
 
-.bi-caret-up-fill, .bi-caret-down-fill {
+.bi-caret-up-fill,
+.bi-caret-down-fill {
   color: var(--input-primary-color);
 }
 

@@ -3,14 +3,14 @@ let todayChapters = [];
 let curChapter = 0;
 let startAudio;
 let audioEndFunction = function () {
-  if (curChapter%1 === 0) {
+  if (curChapter % 1 === 0) {
     lists[curChapter].start = calculateBook(curChapter, 1);
     localStorage.lists = JSON.stringify(lists);
     showToday();
     showBuckets();
   }
-  if (curChapter < todayChapters.length-0.5) {
-    curChapter+=0.5;
+  if (curChapter < todayChapters.length - 0.5) {
+    curChapter += 0.5;
     audio = undefined;
     play();
   } else {
@@ -28,7 +28,7 @@ for (let i = 0; i < lists.length; i++) {
 
 function play() {
   if (audio == undefined) {
-    if (curChapter%1 === 0) {
+    if (curChapter % 1 === 0) {
       let book = todayChapters[curChapter].split(" ").slice(0, -1).join(" ");
       let chapter = todayChapters[curChapter].split(" ").slice(-1)[0];
       audio = new Audio(generateLink(book, chapter));
