@@ -4,7 +4,6 @@ let curChapter = 0;
 let startAudio;
 let audioEndFunction = function () {
   if (curChapter%1 === 0) {
-    console.log(curChapter);
     lists[curChapter].start = calculateBook(curChapter, 1);
     localStorage.lists = JSON.stringify(lists);
     showToday();

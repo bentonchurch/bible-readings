@@ -1,3 +1,2 @@
-# ONeailBible
-
-[Edit in Codeflow ⚡️](https://stackblitz.com/~/github.com/EliasElliotson/ONeailBible)
+# Daily Bible Readings
+This project contains the files for Benton's daily bible readings service.

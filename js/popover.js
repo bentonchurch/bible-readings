@@ -157,7 +157,6 @@ function updateStartInput() {
     document.getElementById("starting-book-dropdown").value = val;
   }
   let numChapters = bibleJson[document.getElementById("starting-book-dropdown").options[document.getElementById("starting-book-dropdown").selectedIndex].text].length;
-  console.log(numChapters, document.getElementById("starting-book-dropdown").options[document.getElementById("starting-book-dropdown").selectedIndex].text)
   document.getElementById("starting-chapter").max=numChapters;
   document.getElementById("starting-chapter").value = Math.min(lists[curEditBucket].start.split(' ').slice(-1), numChapters);
   document.getElementById("max-chapter").innerHTML = " / "+numChapters;
