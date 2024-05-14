@@ -143,7 +143,7 @@ body {
   padding: 5vh 5vh;
   border-radius: 3vh;
   transition-duration: 0.5s;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .bi-x-circle {
