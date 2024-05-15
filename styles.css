@@ -1,18 +1,18 @@
 :root {
   --player-display: 1vh;
 
-  --nav-bg-color: #21295c;
-  --nav-text-color: #ddf8e8;
-  --body-background-color: #ddf8e8;
+  --nav-bg-color: #698a8c;
+  --nav-text-color: #ffffff;
+  --body-background-color: #404040;
   --player-ribbon-background-color: #ffffff;
   --today-block-background-color: #ffffff;
-  --popover-background-color: #ffffff;
+  --popover-background-color: #ebebeb;
   --popover-delete-button-color: #ff0000;
-  --input-primary-color: #F3Bc1f;
+  --input-primary-color: #d9a941;
   --input-secondary-background-color: #ffffff;
-  --bucket-background-color: #a7bece;
+  --bucket-background-color: #a7c2bf;
   --text-input-text-color: #000000;
-  --bucket-text-color: #ffffff;
+  --bucket-text-color: #000000;
   --button-color: #ffffff;
   --today-text-color: #000000;
   --play-button-color: #F3Bc1f;
