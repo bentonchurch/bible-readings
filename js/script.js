@@ -71,16 +71,23 @@ function playIcon() {
   document.getElementById("audiotrigger").classList.remove("pause");
 }
 */
+
+// Old function
+
+// function generateLink(book, chapter) {
+//   return (
+//     "https://audio.esv.org/david-cochran-heath/mq/" +
+//     book +
+//     "+" +
+//     chapter +
+//     "%3A" +
+//     1 +
+//     "%E2%80%93" +
+//     bibleJson[book][chapter] /* 2 */ +
+//     ".mp3"
+//   );
+// }
+
 function generateLink(book, chapter) {
-  return (
-    "https://audio.esv.org/david-cochran-heath/mq/" +
-    book +
-    "+" +
-    chapter +
-    "%3A" +
-    1 +
-    "%E2%80%93" +
-    bibleJson[book][chapter] /* 2 */ +
-    ".mp3"
-  );
+  return `https://audio.esv.org/david-cochran-heath/mq/${book}+${chapter}.mp3`
 }
