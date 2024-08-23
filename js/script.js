@@ -89,5 +89,5 @@ function playIcon() {
 // }
 
 function generateLink(book, chapter) {
-  return `https://audio.esv.org/david-cochran-heath/mq/${book}+${chapter}.mp3`
+  return `https://audio.esv.org/david-cochran-heath/mq/${book.split(' ').join('+')}+${chapter}.mp3`
 }
