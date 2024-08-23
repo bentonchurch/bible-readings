@@ -1,4 +1,5 @@
 let lists = localStorage.lists;
+let bibleJson = localStorage.bibleData;
 
 function initCache() {
   if (lists == undefined) {
@@ -7,10 +8,15 @@ function initCache() {
 
   lists = JSON.parse(localStorage.lists);
 
-  // We used to use bibleData - we don't anymore
-  if (localStorage.bibleData) {
-    localStorage.removeItem("bibleData")
+  if (bibleJson == undefined) {
+    fetch("bible.json")
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.bibleData = JSON.stringify(data);
+      });
   }
+
+  bibleJson = JSON.parse(localStorage.bibleData);
 }
 
 initCache();
