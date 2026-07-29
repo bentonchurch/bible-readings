@@ -12,23 +12,26 @@ function setPopoverBucket(num) {
     <h3>Name</h3>
     <input class="form-control" type="text" id="bucketname" value="${lists[num].name}">
     <br />
-    <br />
 
-    <h3>Current point in this list</h3>
-    <select class="form-select" name="starting-book-dropdown" id="starting-book-dropdown"></select>
-    <input type="number" class="form-control" id="starting-chapter" min="1" value="${lists[curEditBucket].start.split(' ').slice(-1)[0]}" onkeyup="this.value = Math.max(this.value, 1);" />
-    <span id="max-chapter"> / 1</span>
-    <br />
+    <h3>Current chapter</h3>
+    <div class="input-group mb-3">
+      <select class="form-select" name="starting-book-dropdown" id="starting-book-dropdown"></select>
+      <input type="number" class="form-control" id="starting-chapter" min="1" value="${lists[curEditBucket].start.split(' ').slice(-1)[0]}" onkeyup="this.value = Math.max(this.value, 1);" />
+      <span class="input-group-text" id="max-chapter"> / 1</span>
+    </div>
+    
     <br />
 
     <h3>Books</h3>
+    <div class="input-group mb-3">
+      <select class="form-select" name="addbookdropdown" id="addbookdropdown">
+        ${Object.keys(bibleJson).map(e => `<option value="${e}">${e}</option>`)}
+      </select>
+      <button type="button" onclick="addNewBook();" class="btn btn-primary">Add book</button>
+    </div>
     <div id="listbooks">
       <ul></ul>
     </div>
-    <select class="form-select" name="addbookdropdown" id="addbookdropdown">
-      ${Object.keys(bibleJson).map(e => `<option value="${e}">${e}</option>`)}
-    </select>
-    <button type="button" onclick="addNewBook();" class="btn btn-primary">Add book</button>
   `;
 
   // Add script to run when number box is updated
@@ -61,15 +64,18 @@ function updateBooks() {
   for (const i of lists[curEditBucket].books) {
     bookList += `
       <li>
-        <a class="btn btn-danger" href="javascript:void(0);" onclick="removeBook(${j});">
-          <i class="bi bi-trash-fill"></i>
-        </a>
-        <a class="btn btn-secondary" href="javascript:void(0);" onclick="moveBookUp(${j});">
-          <i class="bi bi-caret-up-fill"></i>
-        </a>
-        <a class="btn btn-secondary" href="javascript:void(0);" onclick="moveBookDown(${j});">
-          <i class="bi bi-caret-down-fill"></i>
-        </a> ${i}
+        <div class="input-group input-group-sm mb-1 w-100">
+          <a class="btn btn-danger btn-sm" href="javascript:void(0);" onclick="removeBook(${j});">
+            <i class="bi bi-trash-fill"></i>
+          </a>
+          <a class="btn btn-secondary btn-sm" href="javascript:void(0);" onclick="moveBookUp(${j});">
+            <i class="bi bi-caret-up-fill"></i>
+          </a>
+          <a class="btn btn-secondary btn-sm" href="javascript:void(0);" onclick="moveBookDown(${j});">
+            <i class="bi bi-caret-down-fill"></i>
+          </a>
+          <span class="input-group-text" id="inputGroup-sizing-sm">${i}</span>
+        </div>
       </li>
     `;
     j++;
