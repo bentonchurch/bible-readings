@@ -13,6 +13,11 @@ body {
   gap: 1em;
 }
 
+.content > button, #buckets > button {
+  width: 200px;
+  margin: auto;
+}
+
 #listbooks ul {
   list-style-type: none;
   padding: 0px;
