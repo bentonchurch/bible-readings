@@ -9,29 +9,24 @@ function setPopoverBucket(num) {
 
   // Add bucket rename field
   popover.innerHTML = `
-    <h3>Name</h3>
-    <input class="form-control" type="text" id="bucketname" value="${lists[num].name}">
-    <br />
+    <h5>Name</h5>
+    <input class="form-control mb-3" type="text" id="bucketname" value="${lists[num].name}">
 
-    <h3>Current chapter</h3>
+    <h5>Current chapter</h5>
     <div class="input-group mb-3">
       <select class="form-select" name="starting-book-dropdown" id="starting-book-dropdown"></select>
       <input type="number" class="form-control" id="starting-chapter" min="1" value="${lists[curEditBucket].start.split(' ').slice(-1)[0]}" onkeyup="this.value = Math.max(this.value, 1);" />
       <span class="input-group-text" id="max-chapter"> / 1</span>
     </div>
-    
-    <br />
 
-    <h3>Books</h3>
+    <h5>Books</h5>
     <div class="input-group mb-3">
       <select class="form-select" name="addbookdropdown" id="addbookdropdown">
         ${Object.keys(bibleJson).map(e => `<option value="${e}">${e}</option>`)}
       </select>
-      <button type="button" onclick="addNewBook();" class="btn btn-primary">Add book</button>
+      <button type="button" onclick="addNewBook();" class="btn btn-primary">Add</button>
     </div>
-    <div id="listbooks">
-      <ul></ul>
-    </div>
+    <div id="listbooks"></div>
   `;
 
   // Add script to run when number box is updated
@@ -59,7 +54,7 @@ function updateBooks() {
   list.innerHTML = "";
 
   let bookList = "";
-  bookList += "<ul>";
+  bookList += `<ul class="mb-0">`;
   let j = 0;
   for (const i of lists[curEditBucket].books) {
     bookList += `
@@ -80,7 +75,7 @@ function updateBooks() {
     `;
     j++;
   }
-  bookList += "</ul></div><br>";
+  bookList += "</ul></div>";
   list.innerHTML = bookList;
 
   updateStart(curEditBucket);

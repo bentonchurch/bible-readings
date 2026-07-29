@@ -7,7 +7,7 @@ function showBuckets() {
       <div class="bucket card">
         <div class="card-body">
           <h5 class="card-title">${buckets[i].name}</h5>
-          <ul>
+          <ul class="mb-0">
             ${buckets[i].books.map(e => `<li>${e}</li>`).join('\n')}
           </ul>
         </div>
@@ -23,11 +23,9 @@ function showBuckets() {
     `;
   }
   bucketHtml += `
-    <center>
-      <button type="button" onclick="addBlankList(); setPopoverBucket(${buckets.length}); setPopoverDisplay(true);" id="add-list" class="btn btn-primary">
-        New List
-      </button>
-    </center>
+    <button type="button" onclick="addBlankList(); setPopoverBucket(${buckets.length}); setPopoverDisplay(true);" id="add-list" class="btn btn-primary">
+      New List
+    </button>
   `;
   document.getElementById("buckets").innerHTML = bucketHtml;
 }
