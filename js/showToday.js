@@ -2,9 +2,9 @@ function showToday() {
   let bookList = "";
   for (let i = 0; i < lists.length; i++) {
     bookList += `
-      <li class="list-group-item">
-        <i class="bi bi-play-circle" id="play-chapter-${i}"></i> ${lists[i].start}
-      </li>
+      <a href="#" class="list-group-item list-group-item-action" id="play-chapter-${i}">
+        <i class="bi bi-play-circle"></i> ${lists[i].start}
+      </a>
     `;
   }
 
@@ -18,8 +18,17 @@ function showToday() {
       }
       curChapter = i - 0.5;
       audioEndFunction();
+      setActiveSong(i);
     })
   }
+}
+
+function setActiveSong(i) {
+  for (const child of document.getElementById("todayContent").children) {
+    child.classList.remove("active");
+  }
+
+  document.getElementById("play-chapter-" + Math.floor(i)).classList.add("active");
 }
 
 showToday();

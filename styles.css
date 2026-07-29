@@ -20,5 +20,4 @@ body {
 
 .bi-play-circle {
   color: var(--input-primary-color);
-  cursor: pointer;
 }

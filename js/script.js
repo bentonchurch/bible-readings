@@ -49,6 +49,8 @@ function play() {
   }
 
   if (audio != undefined) {
+    setActiveSong(curChapter);
+
     if (audio.paused) {
       audio.play();
       document.getElementById("audiotrigger").classList.add("pause");
