@@ -36,15 +36,14 @@
     <div class="today card">
       <div class="card-body">
         <div class="d-flex flex-row align-items-center mb-2 gap-2">
-          <div onclick="play()" id="audiotrigger" class="btn btn-primary play btn-lg"><i class="bi bi-play-fill"></i></div>
+          <div onclick="play()" id="audiotrigger" class="btn btn-primary btn-lg"><i class="bi bi-play-fill"></i></div>
           <h5 class="card-title mb-0" id="curDate"></h5>
         </div>
         <div class="list-group" id="todayContent"></div>
       </div>
     </div>
 
-    <button id="show-list" onclick="bucketDisplay(true);" class="btn btn-primary">Show lists <i class="bi bi-chevron-down"></i></button>
-    <button id="hide-list" onclick="bucketDisplay(false);" class="btn btn-primary" style="display: none;">Hide lists <i class="bi bi-chevron-up"></i></button>
+    <button id="lists-toggle" onclick="bucketDisplayToggle();" class="btn btn-primary">Show lists <i class="bi bi-chevron-down"></i></button>
 
     <div id="buckets" style="display: none;"></div>
   </div>

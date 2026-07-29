@@ -1,3 +1,5 @@
+let bucketsShowing = false;
+
 function showBuckets() {
   let buckets = lists;
   let bucketHtml = "";
@@ -32,14 +34,14 @@ function showBuckets() {
 
 showBuckets();
 
-function bucketDisplay(state) {
-  if (state) {
+function bucketDisplayToggle() {
+  if (!bucketsShowing) {
     document.getElementById("buckets").style.display = "flex";
-    document.getElementById("show-list").style.display = "none";
-    document.getElementById("hide-list").style.display = "block";
+    document.getElementById("lists-toggle").innerHTML = `Hide lists <i class="bi bi-chevron-up"></i>`;
   } else {
     document.getElementById("buckets").style.display = "none";
-    document.getElementById("show-list").style.display = "block";
-    document.getElementById("hide-list").style.display = "none";
+    document.getElementById("lists-toggle").innerHTML = `Show lists <i class="bi bi-chevron-down"></i>`;
   }
+
+  bucketsShowing = !bucketsShowing;
 }
