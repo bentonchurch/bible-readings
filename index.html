@@ -33,11 +33,12 @@
   </div>
 
   <div class="content">
-    <div class="today card card-body">
-      <h3 id="curDate"></h3>
-      <div onclick="play()" id="audiotrigger" class="btn btn-primary play btn-lg"><i class="bi bi-play-fill"></i></div>
-      <hr />
-      <ol id="todayContent"></ol>
+    <div class="today card">
+      <div class="card-body">
+        <h5 class="card-title" id="curDate"></h5>
+        <div onclick="play()" id="audiotrigger" class="btn btn-primary play btn-lg"><i class="bi bi-play-fill"></i></div>
+        <ul class="list-group" id="todayContent"></ul>
+      </div>
     </div>
 
     <button id="show-list" onclick="bucketDisplay(true);" class="btn btn-primary">Show lists</button>

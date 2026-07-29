@@ -2,7 +2,7 @@ function showToday() {
   let bookList = "";
   for (let i = 0; i < lists.length; i++) {
     bookList += `
-      <li>
+      <li class="list-group-item">
         <i class="bi bi-play-circle" id="play-chapter-${i}"></i> ${lists[i].start}
       </li>
     `;
