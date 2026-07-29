@@ -1,5 +1,7 @@
 let curEditBucket = 0;
 
+const editModal = new bootstrap.Modal(document.getElementById("popover-background"));
+
 function setPopoverBucket(num) {
   curEditBucket = num;
 
@@ -7,8 +9,6 @@ function setPopoverBucket(num) {
 
   // Add bucket rename field
   popover.innerHTML = `
-    <h1>Edit List</h1>
-    <br />
     <h3>Name</h3>
     <input class="form-control" type="text" id="bucketname" value="${lists[num].name}">
     <br />
@@ -92,9 +92,9 @@ function setData() {
 
 function setPopoverDisplay(type) {
   if (type) {
-    document.getElementById("popover-background").style.display = 'block';
+    editModal.show();
   } else {
-    document.getElementById("popover-background").style.display = 'none';
+    editModal.hide();
   }
 }
 
