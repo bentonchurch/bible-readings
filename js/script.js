@@ -16,9 +16,7 @@ let audioEndFunction = function () {
   } else {
     curChapter = 0;
     audio = undefined;
-    document.getElementById("audiotrigger").classList.add("play");
-    document.getElementById("audiotrigger").classList.remove("pause");
-    document.getElementById("audiotrigger").classList.remove("wait");
+    document.getElementById("audiotrigger").innerHTML = `<i class="bi bi-play-fill"></i>`;
   }
 };
 
@@ -36,9 +34,7 @@ function play() {
       audio = new Audio("player/start.mp3");;
     }
     audio.addEventListener("ended", audioEndFunction);
-    document.getElementById("audiotrigger").classList.remove("pause");
-    document.getElementById("audiotrigger").classList.remove("play");
-    document.getElementById("audiotrigger").classList.add("wait");
+    document.getElementById("audiotrigger").innerHTML = `<i class="bi bi-hourglass-split"></i>`;
     audio.addEventListener("canplay", function () {
       if (audio.paused) {
         play();
@@ -47,46 +43,17 @@ function play() {
   }
 
   if (audio != undefined) {
+    setActiveAudio(curChapter);
+
     if (audio.paused) {
       audio.play();
-      document.getElementById("audiotrigger").classList.add("pause");
-      document.getElementById("audiotrigger").classList.remove("play");
-      document.getElementById("audiotrigger").classList.remove("wait");
+      document.getElementById("audiotrigger").innerHTML = `<i class="bi bi-pause-fill"></i>`;
     } else {
       audio.pause();
-      document.getElementById("audiotrigger").classList.add("play");
-      document.getElementById("audiotrigger").classList.remove("pause");
-      document.getElementById("audiotrigger").classList.remove("wait");
+      document.getElementById("audiotrigger").innerHTML = `<i class="bi bi-play-fill"></i>`;
     }
   }
 }
-/*
-function pauseIcon() {
-  document.getElementById("audiotrigger").classList.add("pause");
-  document.getElementById("audiotrigger").classList.remove("play");
-}
-
-function playIcon() {
-  document.getElementById("audiotrigger").classList.add("play");
-  document.getElementById("audiotrigger").classList.remove("pause");
-}
-*/
-
-// Old function
-
-// function generateLink(book, chapter) {
-//   return (
-//     "https://audio.esv.org/david-cochran-heath/mq/" +
-//     book +
-//     "+" +
-//     chapter +
-//     "%3A" +
-//     1 +
-//     "%E2%80%93" +
-//     bibleJson[book][chapter] /* 2 */ +
-//     ".mp3"
-//   );
-// }
 
 function generateLink(book, chapter) {
   return `https://audio.esv.org/david-cochran-heath/mq/${book.split(' ').join('+')}+${chapter}.mp3`
