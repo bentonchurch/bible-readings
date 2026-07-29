@@ -1,7 +1,11 @@
 function showToday() {
   let bookList = "";
   for (let i = 0; i < lists.length; i++) {
-    bookList += "<li>&nbsp;<i class=\"bi bi-play-circle\" id=\"play-chapter-" + i + "\"></i>&nbsp;&nbsp;" + lists[i].start + "</li>";
+    bookList += `
+      <li>
+        <i class="bi bi-play-circle" id="play-chapter-${i}"></i> ${lists[i].start}
+      </li>
+    `;
   }
 
   document.getElementById("todayContent").innerHTML = bookList;
