@@ -15,7 +15,7 @@ function setPopoverBucket(num) {
     <h5>Current chapter</h5>
     <div class="input-group mb-3">
       <select class="form-select" name="starting-book-dropdown" id="starting-book-dropdown"></select>
-      <input type="text" class="form-control" id="starting-chapter" min="1" value="${lists[curEditBucket].start.split(' ').slice(-1)[0]}" onblur="this.value = Math.max(this.value, 1);" />
+      <input type="number" class="form-control" id="starting-chapter" min="1" value="${lists[curEditBucket].start.split(' ').slice(-1)[0]}" onblur="this.value = Math.max(this.value, 1);" />
       <span class="input-group-text" id="max-chapter"> / 1</span>
     </div>
 
